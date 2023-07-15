@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class P05_Wishlist {
     //1- locators
 
-    By products = By.cssSelector("[class=\"product-name\"]");
+   private By products = By.cssSelector("[class=\"product-name\"]");
 
     //2- variables
     WebDriver driver;

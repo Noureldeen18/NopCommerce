@@ -17,7 +17,6 @@ public class D04_searchStepDef {
     public void userShouldSeeRelevantResultsForProduct() {
         Assert.assertTrue(driver.getCurrentUrl().contains("https://demo.nopcommerce.com/search?q="));
         Assert.assertTrue(p04_serchResults.searchResults() > 0);
-        
 
 
     }

@@ -1,6 +1,7 @@
 package stepDefs;
 
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,21 +10,21 @@ import static stepDefs.Hooks.*;
 
 public class D01_registerStepDef {
 
-    @Given("user go to register page")
-    public void userGoToRegisterPage() {
+    @Given("user clicks on register button")
+    public void userClicksOnRegisterButton() {
         p03homePage.clickRegisterBtn();
     }
 
-    @Given("user select gender type")
-    public void user_select_gender_type() {
-        p01_register.chooseGender("male");
+    @And("user select {}")
+    public void userSelectGenderType(String genderType) {
+        p01_register.chooseGender(genderType);
 
     }
 
-    @Given("user enter first name {string} and last name {string}")
-    public void user_enter_first_name_and_last_name(String FirstName, String lastName) {
-        p01_register.insertFirstname("automation");
-        p01_register.insertLastname("tester");
+    @And("user enter {string} and {string}")
+    public void userEnterFirstNameAndLastName(String firstName, String lastName) {
+        p01_register.insertFirstname(firstName);
+        p01_register.insertLastname(lastName);
     }
 
     @Given("user enter date of birth")
@@ -32,16 +33,16 @@ public class D01_registerStepDef {
 
     }
 
-    @Given("user enter email {string} field")
-    public void user_enter_email_field(String Email) {
-        p01_register.insertEmail("test@example.com");
+    @And("user enter {string}")
+    public void userEnterEmail(String email) {
+        p01_register.insertEmail(email);
 
     }
 
-    @Given("user fills Password fields {string} {string}")
-    public void user_fills_password_fields(String password, String confirmPassword) {
-        p01_register.insertPassword("P@ssw0rd");
-        p01_register.confirmPassword("P@ssw0rd");
+    @And("user fills {string} fields")
+    public void userFillsPasswordFields(String password) {
+        p01_register.insertPassword(password);
+        p01_register.confirmPassword(password);
     }
 
     @When("user clicks on register button")
@@ -53,10 +54,13 @@ public class D01_registerStepDef {
     public void success_message_is_displayed() {
         String expectedMsg = "Your registration completed";
         String actualMsg = p01_register.checkSuccesMsg();
+        softAssert.assertEquals(actualMsg, expectedMsg);
 
         String expectedColor = "rgba(76, 177, 124, 1";
         String actualColor = p01_register.checksuccessMsgColor();
         softAssert.assertEquals(actualColor, expectedColor);
+
+        softAssert.assertAll();
 
 
     }

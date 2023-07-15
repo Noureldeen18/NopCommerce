@@ -4,15 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class P02_login {
-    //1- locators
-    By emailField = By.cssSelector("[id=\"Email\"]");
-    By passwordField = By.cssSelector("[id=\"Password\"]");
-    By loginBtn = By.cssSelector("[class=\"button-1 login-button\"]");
-    By errorMsg = By.cssSelector("[class=\"message-error validation-summary-errors\"]");
-
-
     //2- variables
     WebDriver driver;
+    //1- locators
+    private By emailField = By.id("Email");
+    private By passwordField = By.id("Password");
+    private By loginBtn = By.cssSelector("[class=\"button-1 login-button\"]");
+    private By errorMsg = By.cssSelector("[class=\"message-error validation-summary-errors\"]");
     //3- constructor
 
     public P02_login(WebDriver driver) {
@@ -20,21 +18,21 @@ public class P02_login {
     }
 
     //4- Actions
-    public void insertValidEmail() {
-        driver.findElement(emailField).sendKeys("test@example.com");
+    public void insertValidEmail(String Email) {
+        driver.findElement(emailField).sendKeys(Email);
 
     }
 
-    public void insertValidPassword() {
-        driver.findElement(passwordField).sendKeys("P@ssw0rd");
+    public void insertValidPassword(String Password) {
+        driver.findElement(passwordField).sendKeys(Password);
     }
 
     public void clickLoginBtn() {
         driver.findElement(loginBtn).click();
     }
 
-    public void insrtInvalidEmail() {
-        driver.findElement(emailField).sendKeys("wrong@example.com");
+    public void insrtInvalidEmail(String invalidEmail) {
+        driver.findElement(emailField).sendKeys(invalidEmail);
     }
 
     public String checkErrMsg() {

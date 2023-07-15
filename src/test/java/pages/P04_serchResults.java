@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public class P04_serchResults {
     //1- locators
-    By results = By.cssSelector("[class=\"product-item\"]");
-    By scienceProduct = By.cssSelector("[href=\"/science-faith\"]");
-    By soundForge = By.cssSelector("[href=\"/sound-forge-pro-11-recurring\"]");
-    By sku = By.cssSelector("[class=\"value\"]");
-    By appleCamProduct = By.cssSelector("[href=\"/apple-icam\"]");
+    private By results = By.cssSelector("[class=\"product-item\"]");
+    private By scienceProduct = By.cssSelector("[href=\"/science-faith\"]");
+    private By soundForge = By.cssSelector("[href=\"/sound-forge-pro-11-recurring\"]");
+    private By sku = By.cssSelector("[class=\"value\"]");
+    private By appleCamProduct = By.cssSelector("[href=\"/apple-icam\"]");
     //2- variables
     WebDriver driver;
 
@@ -25,18 +25,6 @@ public class P04_serchResults {
 
     public void clickSearchResults() {
         driver.findElement(results).click();
-    }
-
-    public void clickScienceProduct() {
-        driver.findElement(scienceProduct).click();
-    }
-
-    public void clickAppleCamProduct() {
-        driver.findElement(appleCamProduct).click();
-    }
-
-    public void clickSoundForgeProduct() {
-        driver.findElement(soundForge).click();
     }
 
     public String checkSku(String sku) {

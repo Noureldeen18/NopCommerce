@@ -10,36 +10,36 @@ import java.util.List;
 
 public class P03_homePage {
     //1- locators
-    By registerBtn = By.cssSelector("[class=\"ico-register\"]");
-    By loginBtn = By.cssSelector("[class=\"ico-login\"]");
-    By myaccount = By.cssSelector("[class=\"ico-account\"]");
-    By currenciesDropDown = By.cssSelector("[id=\"customerCurrency\"]");
-    By pc = By.cssSelector("[href=\"/build-your-own-computer\"]");
+    private By registerBtn = By.className("ico-register");
+    private By loginBtn = By.cssSelector("[class=\"ico-login\"]");
+    private By myaccount = By.cssSelector("[class=\"ico-account\"]");
+    private By currenciesDropDown = By.cssSelector("[id=\"customerCurrency\"]");
+    private By pc = By.cssSelector("[href=\"/build-your-own-computer\"]");
 
-    By mac = By.cssSelector("[href=\"/apple-macbook-pro-13-inch\"]");
+    private By mac = By.cssSelector("[href=\"/apple-macbook-pro-13-inch\"]");
 
-    By htc = By.cssSelector("[href=\"/htc-one-m8-android-l-50-lollipop\"]");
+    private By htc = By.cssSelector("[href=\"/htc-one-m8-android-l-50-lollipop\"]");
 
-    By gifCard = By.cssSelector("[href=\"/25-virtual-gift-card\"]");
-    By price = By.cssSelector("[class=\"price actual-price\"]");
-    By serchBox = By.cssSelector("[id=\"small-searchterms\"]");
-    By serchBtn = By.cssSelector("[class=\"button-1 search-box-button\"]");
+    private By gifCard = By.cssSelector("[href=\"/25-virtual-gift-card\"]");
+    private By price = By.cssSelector("[class=\"price actual-price\"]");
+    private By serchBox = By.cssSelector("[id=\"small-searchterms\"]");
+    private By serchBtn = By.cssSelector("[class=\"button-1 search-box-button\"]");
 
-    By computers = By.xpath("//a[@href=\"/computers\"]");
-    By nootbooks = By.cssSelector("[href=\"/notebooks\"]");
-    By pageTitle = By.cssSelector("[class=\"page-title\"]");
+    private By computers = By.xpath("//a[@href=\"/computers\"]");
+    private By nootbooks = By.cssSelector("[href=\"/notebooks\"]");
+    private By pageTitle = By.cssSelector("[class=\"page-title\"]");
 
-    By iphoneSlider = By.cssSelector("[href=\"https://demo.nopcommerce.com/\"]");
-    By s22Slider = By.cssSelector("[href=\"https://demo.nopcommerce.com/\"]");
+    private By iphoneSlider = By.cssSelector("[href=\"https://demo.nopcommerce.com/\"]");
+    private By s22Slider = By.cssSelector("[href=\"https://demo.nopcommerce.com/\"]");
 
-    By facebook = By.cssSelector("[href=\"http://www.facebook.com/nopCommerce\"]");
+    private By facebook = By.cssSelector("[href=\"http://www.facebook.com/nopCommerce\"]");
 
-    By twitter = By.cssSelector("[href=\"https://twitter.com/nopCommerce\"]");
-    By rss = By.cssSelector("[href=\"/news/rss/1\"]");
-    By yotube = By.cssSelector("[href=\"http://www.youtube.com/user/nopCommerce\"]");
-    By htcAddToWishList = By.cssSelector("[class=\"button-2 add-to-wishlist-button\"]");
-    By wishListMsg = By.cssSelector("[class=\"bar-notification success\"]");
-    By wishListBtn = By.cssSelector("[href=\"/wishlist\"]");
+    private By twitter = By.cssSelector("[href=\"https://twitter.com/nopCommerce\"]");
+    private By rss = By.cssSelector("[href=\"/news/rss/1\"]");
+    private By yotube = By.cssSelector("[href=\"http://www.youtube.com/user/nopCommerce\"]");
+    private By htcAddToWishList = By.cssSelector("[class=\"button-2 add-to-wishlist-button\"]");
+    private By wishListMsg = By.cssSelector("[class=\"bar-notification success\"]");
+    private By wishListBtn = By.cssSelector("[href=\"/wishlist\"]");
 
 
     //2- variables

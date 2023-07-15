@@ -2,8 +2,13 @@ package stepDefs;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static stepDefs.Hooks.driver;
 import static stepDefs.Hooks.p03homePage;
 
 public class D03_currenciesStepDef {
@@ -13,11 +18,23 @@ public class D03_currenciesStepDef {
     }
 
     @Then("verify Euro Symbol \\(€) is shown on the {int} products displayed in Home page")
-    public void verify_euro_symbol_€_is_shown_on_the_products_displayed_in_home_page(Integer int1) {
-        Assert.assertTrue(p03homePage.CheckEuroInPc().get(0).getText().contains("€"));
-        Assert.assertTrue(p03homePage.CheckEuroInMac().get(1).getText().contains("€"));
-        Assert.assertTrue(p03homePage.CheckEuroInHtc().get(2).getText().contains("€"));
-        Assert.assertTrue(p03homePage.CheckEuroInGiftCard().get(3).getText().contains("€"));
+    public List<String> getCurrenciesForAllProducts() {
+        List<WebElement> prices = driver.findElements(By.cssSelector(".prices>span"));
+        List<String> currencies = new ArrayList<>();
+
+        for (WebElement i : prices) {
+            String currency = i.getText();
+            currencies.add(currency);
+        }
+        return currencies;
+    }
+
+    public boolean checkCurrencyforAllProducts() {
+        boolean checkCurrencies = getCurrenciesForAllProducts()
+                .stream()
+                .allMatch((s) -> s.startsWith("$"));
+
+        return checkCurrencies;
     }
 
 

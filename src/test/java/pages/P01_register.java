@@ -5,21 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class P01_register {
-    //1- Locators
-    By maleRadioBtn = By.cssSelector("[id=\"gender-male\"]");
-    By femaleRadioBtn = By.cssSelector("[id=\"gender-female\"]");
-    By firstNameField = By.cssSelector("[id=\"FirstName\"]");
-    By lastNameField = By.cssSelector("[id=\"LastName\"]");
-    By selectDayDropdown = By.cssSelector("[name=\"DateOfBirthDay\"]");
-    By selectMonthDropdown = By.cssSelector("[name=\"DateOfBirthMonth\"]");
-    By selectYearDropdown = By.cssSelector("[name=\"DateOfBirthYear\"]");
-    By emailField = By.cssSelector("[id=\"Email\"]");
-    By passwordField = By.cssSelector("[id=\"Password\"]");
-    By confirmPasswordField = By.cssSelector("[id=\"ConfirmPassword\"]");
-    By registerBtn = By.id("register-button");
-    By successMsg = By.cssSelector("[class=\"result\"]");
     //2- variables
     WebDriver driver;
+    //1- Locators
+    private By maleRadioBtn = By.id("gender-male");
+    private By femaleRadioBtn = By.id("gender-female");
+    private By firstNameField = By.id("FirstName");
+    private By lastNameField = By.id("LastName");
+    private By selectDayDropdown = By.name("DateOfBirthDay");
+    private By selectMonthDropdown = By.name("DateOfBirthMonth");
+    private By selectYearDropdown = By.name("DateOfBirthYear");
+    private By emailField = By.id("Email");
+    private By passwordField = By.id("Password");
+    private By confirmPasswordField = By.id("ConfirmPassword");
+    private By registerBtn = By.id("register-button");
+    private By successMsg = By.cssSelector("[class=\"result\"]");
 //3-constructor
 
     public P01_register(WebDriver driver) {
@@ -38,11 +38,11 @@ public class P01_register {
     }
 
     public void insertFirstname(String firstName) {
-        driver.findElement(firstNameField).sendKeys("automation");
+        driver.findElement(firstNameField).sendKeys(firstName);
     }
 
     public void insertLastname(String lastName) {
-        driver.findElement(lastNameField).sendKeys("tester");
+        driver.findElement(lastNameField).sendKeys(lastName);
     }
 
     public void selectDate(String day, String month, String year) {
@@ -57,15 +57,15 @@ public class P01_register {
     }
 
     public void insertEmail(String email) {
-        driver.findElement(emailField).sendKeys("test@example.com");
+        driver.findElement(emailField).sendKeys(email);
     }
 
     public void insertPassword(String paswword) {
-        driver.findElement(passwordField).sendKeys("P@ssw0rd");
+        driver.findElement(passwordField).sendKeys(paswword);
     }
 
-    public void confirmPassword(String repeatPassword) {
-        driver.findElement(confirmPasswordField).sendKeys("P@ssw0rd");
+    public void confirmPassword(String password) {
+        driver.findElement(confirmPasswordField).sendKeys(password);
     }
 
     public void clickRegisterBtn() {

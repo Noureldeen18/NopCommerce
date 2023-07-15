@@ -13,10 +13,10 @@ public class D02_loginStepDef {
         p03homePage.clickLoginBtn();
     }
 
-    @Given("user login with valid Email and Password")
-    public void user_login_with_valid_Email_and_Password() {
-        p02_login.insertValidEmail();
-        p02_login.insertValidPassword();
+    @And("user login with valid {string} and {string}")
+    public void userLoginWithValidEmailAndPassword(String Email, String Password) {
+        p02_login.insertValidEmail(Email);
+        p02_login.insertValidPassword(Password);
 
     }
 
@@ -30,14 +30,16 @@ public class D02_loginStepDef {
         softAssert.assertEquals(driver.getCurrentUrl(), "https://demo.nopcommerce.com/");
         softAssert.assertTrue(p03homePage.checkMyaccount());
 
+        softAssert.assertAll();
+
 
     }
 
 
-    @And("user login with invalid Email and Password")
-    public void userLoginWithInvalidEmailAndPassword() {
-        p02_login.insrtInvalidEmail();
-        p02_login.insertValidPassword();
+    @And("user login with {string} and {string}")
+    public void userLoginWithInvalidEmailAndPassword(String invalidEmail, String Password) {
+        p02_login.insrtInvalidEmail(invalidEmail);
+        p02_login.insertValidPassword(Password);
         p02_login.clickLoginBtn();
     }
 
@@ -46,5 +48,9 @@ public class D02_loginStepDef {
         String actualMsg = p02_login.checkErrMsg().concat("Login was unsuccessful.");
         softAssert.assertEquals(actualMsg, "Login was unsuccessful.");
         softAssert.assertEquals(Color.fromString(p02_login.checkErrMsgColor()).asHex(), "#e4434b");
+
+        softAssert.assertAll();
     }
+
+
 }
